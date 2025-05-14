@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Unlock Browser</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="words.js"></script>
+    <script defer src="utils.js"></script>
+    <script defer src="popup.js"></script>
+    <style>
+      #inputField {
+        border: 1px solid #ccc;
+        padding: 10px;
+        min-height: 100px;
+        background: #ffffff;
+        font-family: monospace;
+      }
+      .wrong {
+        color: red;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🔐 Type all words to unlock the browser</h2>
+    <div id="category" style="margin-bottom: 5px; font-weight: bold"></div>
+    <div
+      id="wordList"
+      style="
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #fffbe6;
+        border: 1px solid #ccc;
+      "
+    ></div>
+
+    <div
+      id="inputWrapper"
+      style="position: relative; width: 100%; min-height: 100px"
+    >
+      <div id="highlightOverlay"></div>
+      <div id="inputField" contenteditable="true" spellcheck="false"></div>
+    </div>
+    <br />
+    <button id="submitBtn">🔓 Unlock</button>
+    <p id="progress"></p>
+    <p id="message"></p>
+    <p id="timer"></p>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f3f4f6;
+  font-size: 24px;
+}
+textarea {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 24px;
+}
+button {
+  padding: 8px 16px;
+  margin-top: 10px;
+}
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+#timer {
+  margin-top: 5px;
+  font-style: italic;
+  color: red;
+}
+
+#inputWrapper {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+#highlightOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: transparent;
+  pointer-events: none;
+  z-index: 1;
+}
+
+#inputField {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  color: black;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  outline: none;
+  min-height: 100px;
+}
+
+.wrong {
+  color: red;
+  text-decoration: underline;
+}
+
+.correct {
+  background-color: #d3f9d8;
+}
