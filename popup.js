@@ -8,6 +8,15 @@ const timer = document.querySelector("#timer");
 let words = [];
 let category = "";
 
+function getWordsForCategory(attemptCount) {
+  const index = getCurrentCategoryIndex(attemptCount);
+  const key = Object.keys(masterWordList)[index];
+  return {
+    category: key,
+    words: masterWordList[key].words,
+    sentence: masterWordList[key].sentence,
+  };
+}
 
 
 chrome.storage.local.get(["attemptCount"], (res) => {
