@@ -1,5 +1,5 @@
 chrome.storage.local.get(["unlocked", "lastUnlockTime"], (result) => {
-  const SIX_MINUTES = 1 * 60 * 1000;
+  const SIX_MINUTES = 6 * 60 * 1000;
   const now = Date.now();
 
   const shouldLock =
