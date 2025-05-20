@@ -8,6 +8,8 @@ const timer = document.querySelector("#timer");
 let words = [];
 let category = "";
 
+
+
 chrome.storage.local.get(["attemptCount"], (res) => {
   const attemptCount = res.attemptCount || 0;
   const result = getWordsForCategory(attemptCount);
@@ -15,8 +17,9 @@ chrome.storage.local.get(["attemptCount"], (res) => {
   category = result.category;
 
   categoryDiv.innerText = `Category: ${category}`;
-  wordListDiv.innerText = words.join(", ");
+  wordListDiv.innerText = result.sentence; // বাক্য দেখান
 });
+
 
 
 let timeLeft = 60;
