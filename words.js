@@ -1,63 +1,10 @@
 const masterWordList = {
-  soil1: [
-    "provides",
-    "necessary",
-    "nutrients",
-    "materials",
-    "concrete",
-    "interior",
-    "garbage",
-    "fertility",
-    
-  ],
-  soil2: [
-    "observation",
-    "capacity",
-    "cowdung",
-    "pollution",
-    "prevent",
-    "conservation",
-    "protection",
-  ],
-  hygiene1: [
-    "strengthens",
-    "Adequate",
-    "tiredness",
-    "reduce",
-    "stress",
-    "emphasis",
-    "waterborne",
-    
-  ],
-  hygiene2: [
-    "diseases",
-    "contaminated",
-    "transmission",
-    "prepare",
-    "including",
-    "symptoms",
-    "available",
-  ],
-  universe1: [
-    "countless",
-    "satellite",
-    "orbiting",
-    "telescope",
-    "appears",
-    "periods",
-    "asteroids",
-    "distance",
-    
-  ],
-  universe2: [
-    "mercury",
-    "venus",
-    "numerous",
-    "pattern",
-    "constellation",
-    "belongs",
-    "exists",
-  ],
-  lifeSafety: ["injury", "damages", "preventable", "snakebite", "avoid"],
-  word: ["A", "big", "cat", "jumped", "quickly", "over", "the", "lazy", "dog"],
+  soil1: {
+    sentence: "Soil provides necessary nutrients and materials for concrete and interior development.",
+    words: ["provides", "necessary", "nutrients", "materials", "concrete", "interior"]
+  },
+  hygiene1: {
+    sentence: "Adequate hygiene strengthens immunity and reduces tiredness and stress.",
+    words: ["Adequate", "hygiene", "strengthens", "tiredness", "reduce", "stress"]
+  }
 };
