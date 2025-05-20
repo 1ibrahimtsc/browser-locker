@@ -18,6 +18,7 @@ chrome.storage.local.get(["attemptCount"], (res) => {
   wordListDiv.innerText = words.join(", ");
 });
 
+
 let timeLeft = 60;
 const countdown = setInterval(() => {
   timeLeft--;
@@ -28,6 +29,24 @@ const countdown = setInterval(() => {
     inputField.setAttribute("contenteditable", "false");
   }
 }, 1000);
+
+// ✅ স্পেস চাপলে সর্বশেষ শব্দ উচ্চারণ
+inputField.addEventListener("keyup", (e) => {
+  if (e.key === " ") {
+    const text = inputField.innerText.trim();
+    const parts = text.split(/\s+/);
+    const lastWord = parts[parts.length - 1];
+    if (lastWord) {
+      speakWord(lastWord);
+    }
+  }
+});
+
+function speakWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-US"; // চাইলে "bn-BD" ব্যবহার করতে পারেন
+  speechSynthesis.speak(utterance);
+}
 
 document.querySelector("#submitBtn").addEventListener("click", () => {
   const rawText = inputField.innerText;
