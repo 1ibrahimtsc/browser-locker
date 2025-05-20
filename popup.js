@@ -31,7 +31,7 @@ chrome.storage.local.get(["attemptCount"], (res) => {
 
 
 
-let timeLeft = 60;
+let timeLeft = 300;
 const countdown = setInterval(() => {
   timeLeft--;
   timer.innerText = `⏳ Time left: ${timeLeft}s`;
@@ -77,7 +77,8 @@ document.querySelector("#submitBtn").addEventListener("click", () => {
   inputField.innerHTML = html.trim();
   progressText.innerText = `${matchedCount}/${words.length} correct`;
 
-  if (matchedCount === words.length) {
+	  {/*
+	  if (matchedCount === words.length) {
     chrome.storage.local.get(["attemptCount", "lockedUrl"], (res) => {
       const attemptCount = res.attemptCount || 0;
       chrome.storage.local.set({
@@ -92,6 +93,39 @@ document.querySelector("#submitBtn").addEventListener("click", () => {
         message.innerText = "✅ Unlocked!";
       }
     });
+  } else {
+    message.innerText = "❌ Some words are incorrect!";
+  }
+	  */}  
+  
+  function speakSentence(sentence) {
+  const utterance = new SpeechSynthesisUtterance(sentence);
+  utterance.lang = "en-US"; // বাংলা হলে "bn-BD"
+  utterance.rate = 1; // চাইলে স্পিড কমাতে পারেন (যেমন 0.9)
+  speechSynthesis.speak(utterance);
+}
+
+  if (matchedCount === words.length) {
+    const sentence = wordListDiv.innerText;
+    speakSentence(sentence); // ✅ বাক্যটি উচ্চারণ করুন
+
+    // ✅ ৩ সেকেন্ড অপেক্ষা করে redirect
+    setTimeout(() => {
+      chrome.storage.local.get(["attemptCount", "lockedUrl"], (res) => {
+        const attemptCount = res.attemptCount || 0;
+        chrome.storage.local.set({
+          unlocked: true,
+          lastUnlockTime: Date.now(),
+          attemptCount: attemptCount + 1,
+        });
+
+        if (res.lockedUrl) {
+          window.location.href = res.lockedUrl;
+        } else {
+          message.innerText = "✅ Unlocked!";
+        }
+      });
+    }, 3000); // ৩ সেকেন্ড (3000 মিলিসেকেন্ড) ডিলে
   } else {
     message.innerText = "❌ Some words are incorrect!";
   }
