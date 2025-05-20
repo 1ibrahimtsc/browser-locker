@@ -19,7 +19,7 @@ chrome.storage.local.get(["attemptCount"], (res) => {
 });
 
 
-let timeLeft = 60;
+let timeLeft = 500;
 const countdown = setInterval(() => {
   timeLeft--;
   timer.innerText = `⏳ Time left: ${timeLeft}s`;
