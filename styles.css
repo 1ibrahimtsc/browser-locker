@@ -62,3 +62,29 @@ button {
 .correct {
   background-color: #d3f9d8;
 }
+
+#inputField span {
+  cursor: help;
+  padding: 0 2px;
+  border-bottom: 1px dotted #aaa;
+}
+
+span[title] {
+  position: relative;
+  cursor: help;
+}
+
+span[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  background: #222;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 9999;
+}
+
+
